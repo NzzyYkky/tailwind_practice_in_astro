@@ -1,0 +1,49 @@
+---
+import { button } from '@variants/button.ts';
+import { container } from '@variants/container.ts'
+
+const nav = [
+	{
+		name: 'NEWS',
+		url: '/news/',
+	},
+	{
+		name: 'ABOUT',
+		url: '/about/',
+	},
+	{
+		name: 'TECHNOLOGY',
+		url: '/technology/',
+	},
+	{
+		name: 'FEATURE',
+		url: '/feature/',
+	},
+];
+---
+
+<header class={container({
+      wide: 'header',
+   })}>
+   <div class="flex justify-between items-center h-full">
+      <h1 class="text-header leading-tight font-raleway font-bold">Logo</h1>
+      <nav>
+         <ul class="flex items-center gap-2.5">
+            {
+               nav.map((item) => (
+                  <li class="text-[16px] font-bold transition ease-in-out hover:opacity-30 duration-300">
+                     <a class="px-2.5 w-full h-full cursor-pointer" ={item.url}>{item.name}</a>
+                  </li>
+               ))
+            }
+            <li
+               class={button({
+                  color: 'primary',
+               })}
+            >
+               <a href="/contact/">CONTACT</a>
+            </li>
+         </ul>
+      </nav>
+   </div>
+</header>
