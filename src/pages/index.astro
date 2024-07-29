@@ -1,7 +1,74 @@
 ---
+import { container } from '@variants/container';
+import { linkHover } from '@variants/linkHover';
 import Layout from '../layouts/Layout.astro';
+import SectionHeading from '@components/SectionHeading.astro';
+import TopNewsCards from '@components/TopNewsCards.astro';
+import TopConceptSlider from '@components/TopConceptSlider.astro';
+import TopOtherContentsList from '@components/TopOtherContentsList.astro';
 ---
 
-<Layout title="Welcome to Astro.">
-	<main></main>
+<Layout title="Astroとtailwindの練習用サイト">
+	<main>
+		<section class="min-h-[845px] h-[100vh] bg-kv-bg mt-[-60px]">
+			<div
+				class={container({
+					class: 'flex items-center h-full',
+				})}
+			>
+				<div class="flex flex-col">
+					<h1 class="font-raleway font-bold md:text-kv">DEVICE PRO</h1>
+					<p class="font-bold tracking-wider leading-normal md:text-2xl">
+						あなたのビジョンをかなえる<br />新型デバイスが登場
+					</p>
+				</div>
+			</div>
+		</section>
+		<section class="md:py-[100px] py-[50px]">
+			<div class={container()}>
+				<SectionHeading text="NEWS" />
+				<div class="flex justify-between md:mt-[30px]">
+					<p class="leading-tight md:text-base">
+						最新のニュース情報を随時更新中。
+					</p>
+					<a
+						class={linkHover({
+							class: 'underline font-bold leading-tight md:text-base',
+						})}
+						href="/news/">NEWS一覧へ</a
+					>
+				</div>
+				<TopNewsCards />
+			</div>
+		</section>
+		<section class="bg-section-bg md:py-[100px] py-[50px]">
+			<div class={container()}>
+				<SectionHeading text="CONCEPT" align="center" />
+				<p
+					class="font-bold leading-normal md:mt-[30px] md:text-center md:text-2xl"
+				>
+					最新のAI技術とビッグデータ解析を駆使し、<br
+						class="md:block hidden"
+					/>顧客のニーズに合わせた最適なソリューションを提供します。<br
+					/>企業の競争力を高め、<br
+						class="md:block hidden"
+					/>業務効率を劇的に向上させるためのサポートを行います。
+				</p>
+				<TopConceptSlider />
+			</div>
+		</section>
+		<section class="bg-white md:py-[100px] py-[50px]">
+			<div class={container()}>
+				<SectionHeading text="OTHER CONTENTS" />
+				<div
+					class="grid w-full md:grid-cols-[calc(((5_/_12)_*_100%)_-_10px)_calc(((7_/_12)_*_100%)_-_10px)] md:gap-[20px] md:mt-20 md:items-center"
+				>
+					<p class="leading-normal md:text-base">
+						テキストが入りますテキストが入ります..テキストが入りますテキストが入りますテキストが入りますテキストが入りますテキストが入りますテキストが入りますテキストが入りますテキストが入りますテキストが入りますテキストが入ります
+					</p>
+					<TopOtherContentsList />
+				</div>
+			</div>
+		</section>
+	</main>
 </Layout>

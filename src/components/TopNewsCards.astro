@@ -1,0 +1,40 @@
+---
+import TopNewsCardsItems from './TopNewsCardsItems.astro';
+
+const data = [
+	{
+		thumb: 'dumnmy_thumb.png',
+		title: 'タイトルが入ります。',
+		detail:
+			'詳細のテキストが入ります。詳細のテキストが入ります。詳細のテキストが入ります。詳細のテキストが入ります。詳細のテキストが入ります。詳細のテキストが入ります。詳細のテキストが入ります。詳細のテキストが入ります。',
+		link: '#',
+	},
+	{
+		thumb: 'dumnmy_thumb.png',
+		title: 'タイトルが入ります。',
+		detail:
+			'詳細のテキストが入ります。詳細のテキストが入ります。詳細のテキストが入ります。詳細のテキストが入ります。詳細のテキストが入ります。詳細のテキストが入ります。詳細のテキストが入ります。詳細のテキストが入ります。',
+		link: '#',
+	},
+	{
+		thumb: 'dumnmy_thumb.png',
+		title: 'タイトルが入ります。',
+		detail:
+			'詳細のテキストが入ります。詳細のテキストが入ります。詳細のテキストが入ります。詳細のテキストが入ります。詳細のテキストが入ります。詳細のテキストが入ります。詳細のテキストが入ります。詳細のテキストが入ります。',
+		link: '#',
+	},
+];
+---
+
+<ul class="grid grid-cols-3 md:gap-[20px] md:mt-[20px]">
+	{
+		data.map((item) => (
+			<TopNewsCardsItems
+				title={item.title}
+				thumb={item.thumb}
+				detail={item.detail}
+				link={item.link}
+			/>
+		))
+	}
+</ul>

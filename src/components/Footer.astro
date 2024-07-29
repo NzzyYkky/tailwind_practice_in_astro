@@ -23,16 +23,18 @@ const nav = [
 ];
 ---
 
-<header
+<footer
 	class={container({
 		wide: 'header',
-		class: 'fixed z-[999] top-0',
+		class: 'bg-footer h-fit',
 	})}
 >
-	<div class="flex justify-between items-center h-full">
-		<h1 class="text-header leading-tight font-raleway font-bold">Logo</h1>
+	<div class="flex justify-between py-[20px]">
+		<h1 class="text-header leading-tight font-raleway font-bold pl-[20px]">
+			Logo
+		</h1>
 		<nav>
-			<ul class="flex items-center gap-2.5">
+			<ul class="flex flex-col gap-[20px]">
 				{
 					nav.map((item) => (
 						<li
@@ -44,15 +46,7 @@ const nav = [
 						</li>
 					))
 				}
-				<li
-					class={button({
-						color: 'primary',
-					})}
-				>
-					<a href="/contact/">CONTACT</a>
-				</li>
 			</ul>
 		</nav>
-		<span class="md:hidden w-5 h-5 bg-black"> </span>
 	</div>
-</header>
+</footer>

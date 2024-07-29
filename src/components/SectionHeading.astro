@@ -1,0 +1,14 @@
+---
+import {
+	sectionHeading,
+	type sectionHeadingVariants,
+} from '@variants/sectionHeading';
+
+interface Props extends sectionHeadingVariants {
+	text: string;
+}
+
+const { text, align } = Astro.props;
+---
+
+<h2 class={sectionHeading({ align: align })}>{text}</h2>

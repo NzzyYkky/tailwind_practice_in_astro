@@ -3,10 +3,11 @@ import { tv } from 'tailwind-variants';
 
 export const container = tv(
 	{
-		base: 'mx-auto w-full max-w-screen-lg',
+		base: 'mx-auto md:w-full md:max-w-screen-lg',
 		variants: {
 			wide: {
-				header: 'mx-auto w-full max-w-[none] px-[160px] h-[60px]',
+				header:
+					'mx-auto px-[15px] h-[60px] md:w-full md:max-w-[none] md:px-[160px]',
 			},
 		},
 	},

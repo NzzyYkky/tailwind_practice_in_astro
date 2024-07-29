@@ -1,0 +1,71 @@
+---
+import { arrow } from "@variants/arrow";
+
+const slides = [
+	{
+		image: 'dumnmy_slider.png',
+	},
+	{
+		image: 'dumnmy_slider.png',
+	},
+	{
+		image: 'dumnmy_slider.png',
+	},
+	{
+		image: 'dumnmy_slider.png',
+	},
+	{
+		image: 'dumnmy_slider.png',
+	},
+];
+---
+
+<!-- Slider main container -->
+<div class="swiper w-full h-full md:mt-[30px] overflow-x-hidden">
+	<!-- Additional required wrapper -->
+	<ul class="swiper-wrapper">
+		<!-- Slides -->
+		{
+			slides.map((slide) => (
+				<div class="swiper-slide">
+					<img src=`/assets/image/${slide.image}` alt="" />
+				</div>
+			))
+		}
+	</ul>
+</div>
+
+<div class="relative flex gap-[20px] w-[100px] ml-auto mt-[20px] h-fit">
+   <div class="swiper-button swiper-button-prev after:content-[''] w-[40px] h-[40px] left-auto top-auto mt-0 relative">
+      <span class="bg-white w-full h-full rounded-full flex justify-center items-center">
+         <span class={arrow({
+            side:'prev'
+         })}></span>
+      </span>
+   </div>
+   <div class="swiper-button swiper-button-next after:content-[''] w-[40px] h-[40px] right-auto top-auto mt-0 relative">
+      <span class="bg-white w-full h-full rounded-full flex justify-center items-center">
+         <span class={arrow({
+            side:'next'
+         })}></span>
+      </span>
+   </div>
+</div>
+
+<script>
+	import Swiper from 'swiper';
+	import { Navigation } from 'swiper/modules';
+
+	export const swiperConfig = {
+		modules: [Navigation],
+      slidesPerView: 4,
+      spaceBetween: 20,
+		loop: true,
+		navigation: {
+			nextEl: '.swiper-button-next',
+			prevEl: '.swiper-button-prev',
+		},
+	};
+
+	const swiper = new Swiper('.swiper', swiperConfig);
+</script>

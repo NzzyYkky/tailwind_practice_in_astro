@@ -1,0 +1,75 @@
+---
+import { linkHover } from '@variants/linkHover';
+
+const list = [
+	{
+		href: '#',
+		date: new Date('2024-07-27'),
+		tags: ['お知らせ', '最新情報', '他カテゴリ'],
+		title: '年末年始の営業に関してのお知らせ',
+	},
+	{
+		href: '#',
+		date: new Date('2024-07-27'),
+		tags: ['お知らせ', '最新情報', '他カテゴリ'],
+		title: '年末年始の営業に関してのお知らせ',
+	},
+	{
+		href: '#',
+		date: new Date('2024-07-27'),
+		tags: ['お知らせ', '最新情報', '他カテゴリ'],
+		title: '年末年始の営業に関してのお知らせ',
+	},
+	{
+		href: '#',
+		date: new Date('2024-07-27'),
+		tags: ['お知らせ', '最新情報', '他カテゴリ'],
+		title: '年末年始の営業に関してのお知らせ',
+	},
+	{
+		href: '#',
+		date: new Date('2024-07-27'),
+		tags: ['お知らせ', '最新情報', '他カテゴリ'],
+		title: '年末年始の営業に関してのお知らせ',
+	},
+];
+---
+
+<div>
+	<ul class="">
+		{
+			list.map((item) => (
+				<li class="first:border-t border-b border-black">
+					<a
+						href={item.href}
+						class={linkHover({
+							class: 'block md:p-[20px]',
+						})}
+					>
+						<div class="flex gap-[20px]">
+							<p class="font-medium md:text-sm">
+								{item.date
+									.toLocaleDateString('ja-JP', {
+										year: 'numeric',
+										month: '2-digit',
+										day: '2-digit',
+									})
+									.replace(/\//g, '.')}
+							</p>
+							<ul class="flex gap-[10px] md:text-sm">
+								{item.tags.map((tag) => (
+									<li>
+										<p class="font-bold md:text-sm">#{tag}</p>
+									</li>
+								))}
+							</ul>
+						</div>
+						<p class="font-bold leading-tight mt-[10px] md:font-base">
+							{item.title}
+						</p>
+					</a>
+				</li>
+			))
+		}
+	</ul>
+</div>
