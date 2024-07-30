@@ -29,12 +29,14 @@ const nav = [
 		class: 'bg-footer h-fit',
 	})}
 >
-	<div class="flex justify-between py-[20px]">
-		<h1 class="text-header leading-tight font-raleway font-bold pl-[20px]">
+	<div class="flex py-[20px] md:justify-between max-md:flex-col">
+		<h1
+			class="text-header-sp leading-tight font-raleway font-bold md:pl-[20px] md:text-header"
+		>
 			Logo
 		</h1>
-		<nav>
-			<ul class="flex flex-col gap-[20px]">
+		<nav class="max-md:mt-[20px]">
+			<ul class="flex gap-20 md:flex-col">
 				{
 					nav.map((item) => (
 						<li
@@ -42,7 +44,7 @@ const nav = [
 								class: 'text-[16px] font-bold',
 							})}
 						>
-							<a class="px-2.5 w-full h-full cursor-pointer">{item.name}</a>
+							<a class="w-full h-full cursor-pointer md:px-2.5">{item.name}</a>
 						</li>
 					))
 				}

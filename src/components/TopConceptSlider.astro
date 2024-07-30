@@ -21,7 +21,7 @@ const slides = [
 ---
 
 <!-- Slider main container -->
-<div class="swiper w-full h-full md:mt-[30px] overflow-x-hidden">
+<div class="swiper w-full h-full mt-[30px] md:mt-[30px] overflow-x-hidden max-md:px-slider">
 	<!-- Additional required wrapper -->
 	<ul class="swiper-wrapper">
 		<!-- Slides -->
@@ -58,13 +58,23 @@ const slides = [
 
 	export const swiperConfig = {
 		modules: [Navigation],
-      slidesPerView: 4,
-      spaceBetween: 20,
+		slidesPerView: 4,
+		spaceBetween: 20,
 		loop: true,
 		navigation: {
 			nextEl: '.swiper-button-next',
 			prevEl: '.swiper-button-prev',
 		},
+		breakpoints: {
+			768: {
+					slidesPerView: 4,
+					spaceBetween: 20,
+			},
+			0: {
+					slidesPerView: 1,
+					spaceBetween: 30,
+			}
+		}
 	};
 
 	const swiper = new Swiper('.swiper', swiperConfig);
