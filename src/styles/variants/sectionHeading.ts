@@ -3,7 +3,7 @@ import { tv, type VariantProps } from 'tailwind-variants';
 
 export const sectionHeading = tv(
 	{
-		base: 'font-bold md:text-xl',
+		base: 'font-bold text-3xl md:text-4xl',
 		variants: {
 			align: {
 				left: 'text-left',

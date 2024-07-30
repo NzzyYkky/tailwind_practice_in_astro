@@ -10,30 +10,32 @@ import TopOtherContentsList from '@components/TopOtherContentsList.astro';
 
 <Layout title="Astroとtailwindの練習用サイト">
 	<main>
-		<section class="min-h-[845px] h-[100vh] bg-kv-bg mt-[-60px]">
+		<section class="bg-kv-bg h-[100vh] md:min-h-[845px] md:mt-[-60px]">
 			<div
 				class={container({
-					class: 'flex items-center h-full',
+					class: 'flex h-full items-end pb-100 md:items-center',
 				})}
 			>
 				<div class="flex flex-col">
-					<h1 class="font-raleway font-bold md:text-kv">DEVICE PRO</h1>
-					<p class="font-bold tracking-wider leading-normal md:text-2xl">
+					<h1 class="font-raleway font-bold text-4xl md:text-kv">DEVICE PRO</h1>
+					<p
+						class="font-bold tracking-wider leading-normal text-2md md:text-2xl"
+					>
 						あなたのビジョンをかなえる<br />新型デバイスが登場
 					</p>
 				</div>
 			</div>
 		</section>
-		<section class="md:py-[100px] py-[50px]">
+		<section class="py-[50px] md:py-[100px]">
 			<div class={container()}>
 				<SectionHeading text="NEWS" />
-				<div class="flex justify-between md:mt-[30px]">
-					<p class="leading-tight md:text-base">
+				<div class="flex justify-between mt-[10px] md:mt-[30px]">
+					<p class="leading-tight text-2sm md:text-base">
 						最新のニュース情報を随時更新中。
 					</p>
 					<a
 						class={linkHover({
-							class: 'underline font-bold leading-tight md:text-base',
+							class: 'underline font-bold leading-tight text-2sm md:text-base',
 						})}
 						href="/news/">NEWS一覧へ</a
 					>
@@ -43,9 +45,15 @@ import TopOtherContentsList from '@components/TopOtherContentsList.astro';
 		</section>
 		<section class="bg-section-bg md:py-[100px] py-[50px]">
 			<div class={container()}>
-				<SectionHeading text="CONCEPT" align="center" />
+				<SectionHeading
+					text="CONCEPT"
+					align={{
+						sm: 'left',
+						md: 'center',
+					}}
+				/>
 				<p
-					class="font-bold leading-normal md:mt-[30px] md:text-center md:text-2xl"
+					class="font-bold leading-normal text-2md tracking-normal mt-[20px] md:mt-[30px] md:text-center md:text-2xl"
 				>
 					最新のAI技術とビッグデータ解析を駆使し、<br
 						class="md:block hidden"
@@ -61,9 +69,9 @@ import TopOtherContentsList from '@components/TopOtherContentsList.astro';
 			<div class={container()}>
 				<SectionHeading text="OTHER CONTENTS" />
 				<div
-					class="grid w-full md:grid-cols-[calc(((5_/_12)_*_100%)_-_10px)_calc(((7_/_12)_*_100%)_-_10px)] md:gap-[20px] md:mt-20 md:items-center"
+					class="grid w-full grid-cols-1 mt-[10px] md:grid-cols-[calc(((5_/_12)_*_100%)_-_10px)_calc(((7_/_12)_*_100%)_-_10px)] md:gap-[20px] md:mt-20 md:items-center"
 				>
-					<p class="leading-normal md:text-base">
+					<p class="leading-normal text-2sm md:text-base">
 						テキストが入りますテキストが入ります..テキストが入りますテキストが入りますテキストが入りますテキストが入りますテキストが入りますテキストが入りますテキストが入りますテキストが入りますテキストが入りますテキストが入ります
 					</p>
 					<TopOtherContentsList />

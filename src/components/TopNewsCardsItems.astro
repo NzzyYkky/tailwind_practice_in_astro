@@ -8,13 +8,14 @@ interface Props {
 const { thumb, title, detail, link } = Astro.props;
 ---
 
-<li class="bg-card-bg grid grid-rows-subgrid row-span-4 gap-0 md:p-[20px]">
+<li class="bg-card-bg grid grid-rows-subgrid row-span-4 gap-0 p-[20px]">
 	<div class="w-full aspect-[16/9]">
 		<img src=`/assets/image/${thumb}` alt={title} />
 	</div>
-	<h3 class="mt-[10px] text-md font-bold">{title}</h3>
-	<p class="mt-[10px] text-base tracking-normal">{detail}</p>
-	<a class="mt-[10px] text-right underline font-bold" href={link}
-		>もっと詳しく</a
+	<h3 class="mt-[10px] font-bold text-base md:text-md">{title}</h3>
+	<p class="mt-[10px] tracking-normal text-2sm md:text-base">{detail}</p>
+	<a
+		class="mt-[10px] text-right underline font-bold text-2sm md:text-base"
+		href={link}>もっと詳しく</a
 	>
 </li>
