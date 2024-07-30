@@ -3,7 +3,7 @@ import tailwind from '@astrojs/tailwind';
 
 export default defineConfig({
   site: 'https://NzzyYkky.github.io',
-  base: '/tailwind_practice_in_astro',
+  base: '/tailwind_practice_in_astro/',
   integrations: [
     tailwind({
       config: {
