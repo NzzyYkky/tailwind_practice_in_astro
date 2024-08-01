@@ -16,7 +16,7 @@ import TopOtherContentsList from '@components/TopOtherContentsList.astro';
 					class: 'flex h-full items-end pb-100 md:items-center',
 				})}
 			>
-				<div class="flex flex-col">
+				<div class="flex flex-col" data-fadein="y-sequence">
 					<h1 class="font-raleway font-bold text-4xl md:text-kv">DEVICE PRO</h1>
 					<p
 						class="font-bold tracking-wider leading-normal text-2md md:text-2xl"
@@ -30,14 +30,15 @@ import TopOtherContentsList from '@components/TopOtherContentsList.astro';
 			<div class={container()}>
 				<SectionHeading text="NEWS" />
 				<div class="flex justify-between mt-[10px] md:mt-[30px]">
-					<p class="leading-tight text-2sm md:text-base">
+					<p class="leading-tight text-2sm md:text-base" data-fadein="x">
 						最新のニュース情報を随時更新中。
 					</p>
 					<a
 						class={linkHover({
 							class: 'underline font-bold leading-tight text-2sm md:text-base',
 						})}
-						href="/news/">NEWS一覧へ</a
+						href="/news/"
+						data-fadein="x">NEWS一覧へ</a
 					>
 				</div>
 				<TopNewsCards />
@@ -54,6 +55,7 @@ import TopOtherContentsList from '@components/TopOtherContentsList.astro';
 				/>
 				<p
 					class="font-bold leading-normal text-2md tracking-normal mt-[20px] md:mt-[30px] md:text-center md:text-2xl"
+					data-fadein="y"
 				>
 					最新のAI技術とビッグデータ解析を駆使し、<br
 						class="md:block hidden"
@@ -71,7 +73,10 @@ import TopOtherContentsList from '@components/TopOtherContentsList.astro';
 				<div
 					class="grid w-full grid-cols-1 mt-[10px] md:grid-cols-[calc(((5_/_12)_*_100%)_-_10px)_calc(((7_/_12)_*_100%)_-_10px)] md:gap-[20px] md:mt-20 md:items-center"
 				>
-					<p class="leading-normal text-2sm md:text-base">
+					<p
+						class="leading-normal text-2sm md:text-base"
+						data-fadein="y-sequence"
+					>
 						テキストが入りますテキストが入ります..テキストが入りますテキストが入りますテキストが入りますテキストが入りますテキストが入りますテキストが入りますテキストが入りますテキストが入りますテキストが入りますテキストが入ります
 					</p>
 					<TopOtherContentsList />

@@ -11,4 +11,6 @@ interface Props extends sectionHeadingVariants {
 const { text, align } = Astro.props;
 ---
 
-<h2 class={sectionHeading({ align: align })}>{text}</h2>
+<h2 class={sectionHeading({ align: align })} data-fadein="y">
+	{text}
+</h2>
