@@ -1,5 +1,6 @@
 import { defineConfig } from 'astro/config';
 import tailwind from '@astrojs/tailwind';
+import { visualizer } from 'rollup-plugin-visualizer';
 
 export default defineConfig({
   site: 'https://NzzyYkky.github.io',
@@ -16,4 +17,9 @@ export default defineConfig({
       },
     }),
   ],
+  vite: {
+    plugins: [
+      visualizer({ filename: 'bundle-analysis.html', open: true, }),
+    ],
+  },
 });
