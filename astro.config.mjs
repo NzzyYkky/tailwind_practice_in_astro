@@ -4,7 +4,7 @@ import { visualizer } from 'rollup-plugin-visualizer';
 
 export default defineConfig({
   site: 'https://NzzyYkky.github.io',
-  // base: '/tailwind_practice_in_astro',
+  base: '/tailwind_practice_in_astro/',
   integrations: [
     tailwind({
       config: {
