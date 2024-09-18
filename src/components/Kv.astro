@@ -53,7 +53,7 @@
 
 		function createFloatingText(offscreen: boolean = false): FloatingText {
 			const text = p.random(messages);
-			const size = p.random(10, 24);
+			const size = p.random(16, 62);
 			const speed = p.map(size, 6, 24, 1, 3);
 			return {
 				text,
@@ -92,9 +92,9 @@
 
 			texts.forEach((t, index) => {
 				p.fill(t.color);
-				p.textSize(t.size);
 				p.textStyle(p.NORMAL);
 				p.textFont('Noto Sans JP', t.weight);
+				p.textSize(t.size);
 				p.text(t.text, t.x, t.y);
 
 				t.x -= t.speed;
@@ -120,7 +120,7 @@
 				text: newMessage,
 				x: board.clientWidth,
 				y: p5Instance.random(p5Instance.height),
-				size: p5Instance.random(10, 24),
+				size: p5Instance.random(16, 62),
 				speed: p5Instance.random(1, 3),
 				color: p5Instance.color(
 					p5Instance.random(360),
