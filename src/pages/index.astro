@@ -6,30 +6,13 @@ import SectionHeading from '@components/SectionHeading.astro';
 import TopNewsCards from '@components/TopNewsCards.astro';
 import TopConceptSlider from '@components/TopConceptSlider.astro';
 import TopOtherContentsList from '@components/TopOtherContentsList.astro';
+import Kv from '@components/Kv.astro';
 ---
 
 <Layout title="Astroとtailwindの練習用サイト">
 	<main>
 		<section class="bg-kv-bg h-[100vh] md:min-h-[845px] md:mt-[-60px]">
-			<div
-				class={container({
-					class: 'flex h-full items-end pb-100 md:items-center',
-				})}
-			>
-				<div class="flex flex-col" data-fadein="y-sequence">
-					<h1
-						class="font-raleway font-bold text-4xl md:text-kv"
-						data-animate-text
-					>
-						DEVICE PRO
-					</h1>
-					<p
-						class="font-bold tracking-wider leading-normal text-2md md:text-2xl"
-					>
-						あなたのビジョンをかなえる<br />新型デバイスが登場
-					</p>
-				</div>
-			</div>
+			<Kv />
 		</section>
 		<section class="py-[50px] md:py-[100px]">
 			<div class={container()}>
