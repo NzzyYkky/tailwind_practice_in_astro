@@ -1,0 +1,135 @@
+---
+
+---
+
+<div id="js-canvas" class="relative w-full h-full">
+	<form
+		id="inputForm"
+		class="block w-fit h-fit absolute top-2/4 left-2/4 translate-y-[-50%] translate-x-[-50%] bg-white bg-opacity-80 p-2"
+	>
+		<input type="text" id="messageInput" placeholder="> KV Title Goes Here <" />
+		<button type="submit" class="bg-blue-500 text-white p-1 rounded ml-2"
+			>追加</button
+		>
+	</form>
+</div>
+
+<script>
+	import p5 from 'p5';
+
+	const board = document.getElementById('js-canvas');
+	if (!board) {
+		throw new Error('Board element not found');
+	}
+
+	const form = document.getElementById('inputForm') as HTMLFormElement;
+	const input = document.getElementById('messageInput') as HTMLInputElement;
+
+	interface FloatingText {
+		text: string;
+		x: number;
+		y: number;
+		size: number;
+		speed: number;
+		color: p5.Color;
+		weight: number;
+	}
+
+	// ローカルストレージからメッセージを取得または初期化
+	let messages: string[] = JSON.parse(
+		localStorage.getItem('floatingMessages') || '[]'
+	);
+	if (messages.length === 0) {
+		messages = ['こんにちは', 'ニコニコ', 'P5.js', 'TypeScript'];
+		localStorage.setItem('floatingMessages', JSON.stringify(messages));
+	}
+
+	let texts: FloatingText[] = [];
+	const fontWeights = [100, 300, 400, 500, 700, 900];
+	let p5Instance: p5;
+
+	const sketch = (p: p5) => {
+		p5Instance = p; // p5インスタンスをグローバルに保存
+
+		function createFloatingText(offscreen: boolean = false): FloatingText {
+			const text = p.random(messages);
+			const size = p.random(10, 24);
+			const speed = p.map(size, 6, 24, 1, 3);
+			return {
+				text,
+				x: offscreen ? p.width : p.random(p.width, p.width * 1.5),
+				y: p.random(size, p.height - size / 2),
+				size,
+				speed,
+				color: p.color(
+					p.random(360),
+					p.random(50, 100),
+					p.random(80, 100),
+					0.8
+				),
+				weight: p.random(fontWeights) as number,
+			};
+		}
+
+		p.setup = () => {
+			p.createCanvas(board.clientWidth, board.clientHeight).parent(board);
+			p.frameRate(60);
+			p.colorMode(p.HSB, 360, 100, 100, 1);
+			p.textFont('Noto Sans JP');
+
+			// 初期テキストを生成
+			for (let i = 0; i < 20; i++) {
+				texts.push(createFloatingText());
+			}
+		};
+
+		p.windowResized = () => {
+			p.resizeCanvas(board.clientWidth, board.clientHeight);
+		};
+
+		p.draw = () => {
+			p.clear();
+
+			texts.forEach((t, index) => {
+				p.fill(t.color);
+				p.textSize(t.size);
+				p.textStyle(p.NORMAL);
+				p.textFont('Noto Sans JP', t.weight);
+				p.text(t.text, t.x, t.y);
+
+				t.x -= t.speed;
+
+				if (t.x + p.textWidth(t.text) < 0) {
+					texts[index] = createFloatingText(true);
+				}
+			});
+		};
+	};
+
+	new p5(sketch);
+
+	form.addEventListener('submit', (e: Event) => {
+		e.preventDefault();
+		const newMessage = input.value.trim();
+		if (newMessage && p5Instance) {
+			messages.push(newMessage);
+			localStorage.setItem('floatingMessages', JSON.stringify(messages));
+			input.value = '';
+			// 新しいテキストを追加
+			texts.push({
+				text: newMessage,
+				x: board.clientWidth,
+				y: p5Instance.random(p5Instance.height),
+				size: p5Instance.random(10, 24),
+				speed: p5Instance.random(1, 3),
+				color: p5Instance.color(
+					p5Instance.random(360),
+					p5Instance.random(50, 100),
+					p5Instance.random(80, 100),
+					0.8
+				),
+				weight: p5Instance.random(fontWeights) as number,
+			});
+		}
+	});
+</script>
