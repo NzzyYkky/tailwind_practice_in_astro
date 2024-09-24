@@ -40,8 +40,7 @@
 		localStorage.getItem('floatingMessages') || '[]'
 	);
 	if (messages.length === 0) {
-		messages = ['こんにちは', 'ニコニコ', 'P5.js', 'TypeScript'];
-		localStorage.setItem('floatingMessages', JSON.stringify(messages));
+		messages = ['テキストを入力してKVに表示'];
 	}
 
 	let texts: FloatingText[] = [];
@@ -112,10 +111,16 @@
 		e.preventDefault();
 		const newMessage = input.value.trim();
 		if (newMessage && p5Instance) {
+			if (
+				messages.length === 1 &&
+				messages[0] === 'テキストを入力してKVに表示'
+			) {
+				messages = [];
+			}
 			messages.push(newMessage);
 			localStorage.setItem('floatingMessages', JSON.stringify(messages));
 			input.value = '';
-			// 新しいテキストを追加
+
 			texts.push({
 				text: newMessage,
 				x: board.clientWidth,
